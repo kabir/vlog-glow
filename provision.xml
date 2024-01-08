@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!--
+    USAGE:
+        /path/to/galleon/bin/galleon.sh provision /path/to/this/provision.xml -dir=/path/to/created/wildfly/install/dir
+    (note that `-dir` should have double hyphens, which don't work in XML comments!)
+-->
+<installation xmlns="urn:jboss:galleon:provisioning:3.0">
+    <feature-pack location="wildfly@maven(org.jboss.universe:community-universe):current">
+        <default-configs inherit="false"/>
+        <packages inherit="false">
+            <!-- If docs/licenses is desired, uncomment this line -->
+            <!-- include name="docs.licenses"/ -->
+        </packages>
+    </feature-pack>
+<!--
+    &lt;!&ndash;
+        When releasing and updating the version here. Remember to also update the version in the main README!!!
+    &ndash;&gt;
+    <feature-pack location="org.wildfly.extras.reactive:wildfly-microprofile-reactive-feature-pack:3.0.1.Final-SNAPSHOT">
+        <default-configs inherit="false"/>
+        <packages inherit="false">
+            &lt;!&ndash; If docs/licenses is desired, uncomment this line &ndash;&gt;
+            &lt;!&ndash; include name="docs.licenses.merge"/ &ndash;&gt;
+        </packages>
+    </feature-pack>
+-->
+    <config model="standalone" name="standalone.xml">
+        <layers>
+            <!-- The base server -->
+            <include name="cloud-server"/>
+            <include name="cdi"/>
+            <include name="jaxrs"/>
+            <include name="microprofile-config"/>
+        </layers>
+    </config>
+    <options>
+        <option name="optional-packages" value="passive+"/>
+    </options>
+</installation>
