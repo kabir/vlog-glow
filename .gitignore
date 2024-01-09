@@ -1,5 +1,8 @@
 # ignore .svn metadata files
 .svn
+
+/servers/*
+
 # ignore Maven generated target folders
 ~
 target
