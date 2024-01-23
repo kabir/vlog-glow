@@ -123,3 +123,4 @@ Hello Stranger
 
 This was a very quick introduction to WildFly Glow. See the WildFly GLow (documentation)[http://docs.wildfly.org/wildfly-glow/] for descriptions of more advanced usage.
 
+Here is a relative blog post describing the usage of this project: [Using WildFly Glow to provision the Wildfly server](https://weinan.io/2024/01/23/wildfly-glow.html)
